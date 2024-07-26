@@ -1,0 +1,183 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: #202020;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  .header-left-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .side-nav-btn {
+      padding: 0.5rem;
+    }
+    .side-nav-btn img {
+      height: 2rem;
+      margin-right: 10px;
+    }
+    .youtube-logo {
+      /* width: 20px; */
+      height: 30px;
+    }
+  }
+
+  .search {
+    display: flex;
+    width: 50%;
+    margin: 0 2rem 0 2rem;
+
+    .search-bar {
+      display: flex;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .search-btn {
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      border: none;
+      border-top-left-radius: 0;
+
+      border-bottom-left-radius: 0;
+      background-color: #303030;
+      border-left: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #373737;
+      }
+    }
+  }
+
+  .voice-search-btn {
+    background: none;
+    border: none;
+    background: #181818;
+    border-radius: 50%;
+    padding: 0.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: inherit;
+    padding: 0.4rem;
+    border: 1px solid #303030;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #121212;
+    color: #fff;
+
+    &:focus {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  .search-mobile {
+    display: none;
+  }
+
+  .menu-icons {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .menu-channel-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #aaa;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 425px) {
+  .header {
+    justify-content: flex-start;
+    position: relative; //Remove Sticky Behaviour
+
+    .search {
+      display: none;
+    }
+
+    .side-nav-btn {
+      display: none;
+    }
+
+    .menu-icons a:not(:last-child) {
+      display: none;
+    }
+
+    .youtube-logo {
+      height: 25px;
+    }
+
+    .menu-icons a:last-child {
+      margin-right: 0;
+    }
+
+    .menu-icons {
+      gap: 0;
+    }
+
+    .search-mobile {
+      display: block;
+      margin-left: auto;
+      margin-right: 1em;
+      .search-btn {
+        border-radius: 50%;
+        padding: 0.4em;
+        background: none;
+        border: none;
+      }
+    }
+
+    .search-form {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      .backdrop {
+        background-color: rgba(0, 0, 0, 0.6);
+        height: 100%;
+      }
+      .back-btn {
+        background: none;
+        border: none;
+      }
+
+      .voice-search-btn {
+        background: none;
+      }
+
+      .form-control {
+        display: flex;
+        background-color: #121212;
+        padding: 0.2em;
+      }
+
+      .search-input {
+        border: none;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 0.4em;
+
+        &::placeholder {
+          color: #aaa;
+        }
+      }
+    }
+  }
+}
